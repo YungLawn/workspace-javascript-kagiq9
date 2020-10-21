@@ -22,7 +22,7 @@
 				<script>
 					document.write("JavaScript is a loose typed language");
 
-                    document.title = "Yilian Zhang";
+                    document.title = "Chris Teelon";
                     console.log("hello world to JavaScript!!");
 				</script>
 			</p>
@@ -288,6 +288,12 @@
                         case "warm":
                             bcolor = "green";
                             break;
+                        case "hot":
+                            bcolor = "red";
+                            break;
+                        case "cool":
+                            bcolor = "blue";
+                            break;
                         default:
                             bcolor = "white";
                     }
@@ -327,7 +333,7 @@
 
 				</p>
 				<p>
-					<input type="button" value="Check Premium">
+					<input id="getpremium" type="button" value="Check Premium">
             </p>
 					<p id="premium">
 
@@ -335,6 +341,7 @@
 
 					<script type="text/javascript">
 						//add event listener to the button  -- TRY IT
+            document.getElementById('getpremium').addEventListener('click',premium);
            
             function premium() {
                 //get the radio element value
@@ -382,8 +389,35 @@
 			<p> Display the square of numer 1... N </p>
 			<p> N = <input type="number" min="1" max="10" id="inputnumber1"> </p>
 				<p>
-					<input type="button" value="Click for Square">
+					<input type="button" id="square" value="Click for Square">
             </p>
+
+					<script>
+						//add event listener
+            document.getElementById('square').addEventListener('click', displaysquare);
+
+
+            //event handler
+
+            function displaysquare(){
+              var n  = parseInt(document.getElementById('inputnumber1').value);
+              // have the loop
+              var output="";
+              for(var i = 1;i<n;i++){
+                var square = i*i;
+                output += "<h1>"+ i + "<sup> 2 </sup> = " +square + "<h1>";
+              }
+
+              console.log(n);
+
+              console.log(typeof n);
+
+              document.writeln(output);
+
+            }
+
+					</script>
+
 
 
 		</div>
