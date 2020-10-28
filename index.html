@@ -480,15 +480,63 @@
 			<h1> A simple JavaScript Quiz</h1>
 			<p> A simple JavaScript Quiz </p>
 			<p>Target: Generate 10 basic multiplication problems using JavaScript and check the answers</p>
-			<script>
-        var mo = 360;
-        var loanamount = 150000;
-        var interestrate = 0.055;
-        var monthlyrate = interestrate/12;
-        var monthlypayment = loanamount * monthlyrate/(1-Math.pow(1+monthlyrate,-mo));
+			<p id="quiz">
+				<span> </span> + <span></span> = <input type = "text" size="10">
+				<input type="button" value="Next">
+      </p>
+
+				<script>
+          // $('.practice #quiz').hide();
+
+          $('#quiz').click(function(){
+            // do something here
+            $(this).text("click");
+
+          } );
 
 
-			</script>
+					//generate number from 1 to 10 
+          function gen(){
+            var num = Math.floor(Math.random()*10)+1;
+            return num;
+          }
+
+          // generate quiz 
+          $('#quiz span').each(function(){
+              // get the random number  -- try it with me
+              var num = gen();
+              $(this).text(num);
+
+          });
+
+          // hide the next button --- try it with me. 
+          $('#quiz input[type = "button"]').hide();
+          
+          // check answer
+          $('#quiz input[type="text"]').blur(function(){
+              var $A = $(this).prev();
+              var $B = $A.prev();
+              var ans = parseInt($A.text()) + parseInt($B.text());
+              if (parseInt($(this).val()) !== ans) {
+                  // highlight the answer
+                   $(this).css("background-color", "red");
+                } else {
+                  // if the answer is correct. background color be green and show the next button
+
+
+
+
+              } 
+          });
+
+          //Get the next question --- try it 
+          $('#quiz input[type="button"]').click(function(){
+ 
+
+          });
+
+
+				</script>
 
 
 
@@ -519,7 +567,7 @@
 						</tr>
 					</table>
 					<script>
-            var rand = Math.floor(Math.random()*6)+1;
+						var rand = Math.floor(Math.random()*6)+1;
             console.log(rand);
             var imgE = document.getElementById('dies');
             imgE.setAttribute('src', "img/die"+rand+".png");
@@ -551,6 +599,29 @@
 							<div class="img-container-hide">
 								<img src="img/usca5.jpg" alt="usca">
             </div>
+
+								<script>
+									// get the elements
+                var imglist = document.querySelectorAll('.img-container-hide');
+                imglist[0].setAttribute('class','img-container');
+
+                  //index which points to current image
+                var index = 0;
+
+                  //run function every 5 seconds
+                setInterval(runnow, 5000);
+
+                  //automatically change to another image
+                function runnow(){
+                  imglist[index].setAttribute('class','img-container-hide');
+                  index++;
+                  imglist[index].setAttribute('class','img-container');
+                  
+              
+
+                }
+
+								</script>
 
 							</div>
 
